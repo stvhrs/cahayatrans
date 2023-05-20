@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gabriel_logistik/mobil/delete_mobil.dart';
-import 'package:gabriel_logistik/mobil/edit_mobil.dart';
-import 'package:gabriel_logistik/models/mobil.dart';
-import 'package:gabriel_logistik/providerData/providerData.dart';
+import 'package:cahaya/mobil/delete_mobil.dart';
+import 'package:cahaya/mobil/edit_mobil.dart';
+import 'package:cahaya/models/mobil.dart';
+import 'package:cahaya/providerData/providerData.dart';
 import 'package:provider/provider.dart';
 
 

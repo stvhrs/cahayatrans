@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gabriel_logistik/helper/uppercase.dart';
-import 'package:gabriel_logistik/services/service.dart';
+import 'package:cahaya/helper/uppercase.dart';
+import 'package:cahaya/services/service.dart';
 import 'package:provider/provider.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 

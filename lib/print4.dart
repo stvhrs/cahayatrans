@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gabriel_logistik/examples.dart';
+import 'package:cahaya/examples.dart';
 import 'package:printing/printing.dart';
 
 class LabaRugi extends StatefulWidget {

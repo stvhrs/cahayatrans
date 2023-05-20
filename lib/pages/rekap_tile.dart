@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:collection/collection.dart';
-import 'package:gabriel_logistik/models/rekap_model.dart';
+import 'package:cahaya/models/rekap_model.dart';
 import '../helper/rupiah_format.dart';
 
 class Rekap extends StatefulWidget {

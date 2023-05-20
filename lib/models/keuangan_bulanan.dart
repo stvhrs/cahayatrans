@@ -1,5 +1,5 @@
-import 'package:gabriel_logistik/models/perbaikan.dart';
-import 'package:gabriel_logistik/models/transaksi.dart';
+import 'package:cahaya/models/perbaikan.dart';
+import 'package:cahaya/models/transaksi.dart';
 
 class KeuanganBulanan {
   String namaMobil;

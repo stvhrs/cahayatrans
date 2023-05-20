@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "gabriel_logistik" "\0"
+            VALUE "FileDescription", "cahaya" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "gabriel_logistik" "\0"
+            VALUE "InternalName", "cahaya" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "gabriel_logistik.exe" "\0"
-            VALUE "ProductName", "gabriel_logistik" "\0"
+            VALUE "OriginalFilename", "cahaya.exe" "\0"
+            VALUE "ProductName", "cahaya" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

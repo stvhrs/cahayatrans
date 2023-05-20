@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gabriel_logistik/examples.dart';
-import 'package:gabriel_logistik/models/history_saldo.dart';
-import 'package:gabriel_logistik/models/history_saldo2.dart';
-import 'package:gabriel_logistik/models/kas_tahun.dart';
+import 'package:cahaya/examples.dart';
+import 'package:cahaya/models/history_saldo.dart';
+import 'package:cahaya/models/history_saldo2.dart';
+import 'package:cahaya/models/kas_tahun.dart';
 import 'package:printing/printing.dart';
 
 class PrintDynamic extends StatefulWidget {

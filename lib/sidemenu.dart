@@ -3,27 +3,27 @@ import 'dart:developer';
 
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 import 'package:flutter/material.dart';
-import 'package:gabriel_logistik/models/jual_beli_mobil.dart';
-import 'package:gabriel_logistik/models/perbaikan.dart';
-import 'package:gabriel_logistik/pages/administrasi_page.dart';
+import 'package:cahaya/models/jual_beli_mobil.dart';
+import 'package:cahaya/models/perbaikan.dart';
+import 'package:cahaya/pages/administrasi_page.dart';
 
-import 'package:gabriel_logistik/pages/daftar_supir.dart';
-import 'package:gabriel_logistik/pages/dashboard..dart';
-import 'package:gabriel_logistik/pages/jual_beli.dart';
-import 'package:gabriel_logistik/pages/kas_tahun.dart';
-import 'package:gabriel_logistik/pages/laporan_bulanan.dart';
-import 'package:gabriel_logistik/pages/laporan_kas.dart';
-import 'package:gabriel_logistik/pages/mutasi_saldo.dart';
-import 'package:gabriel_logistik/pages/pengeluran.dart';
-import 'package:gabriel_logistik/pages/pendapatan.dart';
+import 'package:cahaya/pages/daftar_supir.dart';
+import 'package:cahaya/pages/dashboard..dart';
+import 'package:cahaya/pages/jual_beli.dart';
+import 'package:cahaya/pages/kas_tahun.dart';
+import 'package:cahaya/pages/laporan_bulanan.dart';
+import 'package:cahaya/pages/laporan_kas.dart';
+import 'package:cahaya/pages/mutasi_saldo.dart';
+import 'package:cahaya/pages/pengeluran.dart';
+import 'package:cahaya/pages/pendapatan.dart';
 
-import 'package:gabriel_logistik/pages/perbaikan_page.dart';
-import 'package:gabriel_logistik/pages/rekap_unit.dart';
+import 'package:cahaya/pages/perbaikan_page.dart';
+import 'package:cahaya/pages/rekap_unit.dart';
 
-import 'package:gabriel_logistik/pages/transaksi_page.dart';
-import 'package:gabriel_logistik/pages/user_management.dart';
-import 'package:gabriel_logistik/providerData/providerData.dart';
-import 'package:gabriel_logistik/services/service.dart';
+import 'package:cahaya/pages/transaksi_page.dart';
+import 'package:cahaya/pages/user_management.dart';
+import 'package:cahaya/providerData/providerData.dart';
+import 'package:cahaya/services/service.dart';
 import 'package:provider/provider.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -34,7 +34,7 @@ import 'pages/daftar_mobil.dart';
 import 'models/mobil.dart';
 import 'models/supir.dart';
 import 'models/transaksi.dart';
-import 'package:gabriel_logistik/helper/custompaint.dart';
+import 'package:cahaya/helper/custompaint.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({super.key});

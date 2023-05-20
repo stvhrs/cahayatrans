@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:gabriel_logistik/dashboard/ranguman_tile.dart';
-import 'package:gabriel_logistik/helper/rupiah_format.dart';
-import 'package:gabriel_logistik/logout.dart';
+import 'package:cahaya/dashboard/ranguman_tile.dart';
+import 'package:cahaya/helper/rupiah_format.dart';
+import 'package:cahaya/logout.dart';
 import 'package:provider/provider.dart';
 
 import '../providerData/providerData.dart';

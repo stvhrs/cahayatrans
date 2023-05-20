@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gabriel_logistik/models/user.dart';
-import 'package:gabriel_logistik/providerData/providerData.dart';
-import 'package:gabriel_logistik/user/edit_user.dart';
+import 'package:cahaya/models/user.dart';
+import 'package:cahaya/providerData/providerData.dart';
+import 'package:cahaya/user/edit_user.dart';
 import 'package:provider/provider.dart';
 
 import 'delete_user.dart';

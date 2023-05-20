@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gabriel_logistik/models/supir.dart';
-import 'package:gabriel_logistik/providerData/providerData.dart';
-import 'package:gabriel_logistik/supir/edit_supir.dart';
+import 'package:cahaya/models/supir.dart';
+import 'package:cahaya/providerData/providerData.dart';
+import 'package:cahaya/supir/edit_supir.dart';
 import 'package:provider/provider.dart';
 
 import 'delete_supir.dart';

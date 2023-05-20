@@ -1,4 +1,4 @@
-import 'package:gabriel_logistik/models/perbaikan.dart';
+import 'package:cahaya/models/perbaikan.dart';
 
 class Mobil {
   String id;

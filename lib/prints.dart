@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gabriel_logistik/examples.dart';
-import 'package:gabriel_logistik/models/keuangan_bulanan.dart';
+import 'package:cahaya/examples.dart';
+import 'package:cahaya/models/keuangan_bulanan.dart';
 import 'package:printing/printing.dart';
 
 class LaporanPrint extends StatefulWidget {

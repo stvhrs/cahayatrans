@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:collection/collection.dart';
-import 'package:gabriel_logistik/models/kas_tahun.dart';
+import 'package:cahaya/models/kas_tahun.dart';
 import '../helper/rupiah_format.dart';
 
 class Kas extends StatefulWidget {

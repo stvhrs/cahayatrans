@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:gabriel_logistik/helper/rupiah_format.dart';
-import 'package:gabriel_logistik/models/mobil.dart';
-import 'package:gabriel_logistik/models/transaksi.dart';
+import 'package:cahaya/helper/rupiah_format.dart';
+import 'package:cahaya/models/mobil.dart';
+import 'package:cahaya/models/transaksi.dart';
 
-import 'package:gabriel_logistik/providerData/providerData.dart';
+import 'package:cahaya/providerData/providerData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gabriel_logistik/services/service.dart';
+import 'package:cahaya/services/service.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:provider/provider.dart';
 import 'package:web_date_picker/web_date_picker.dart';
@@ -462,7 +462,7 @@ listMobil.sort((a, b){ //sorting in ascending order
                                                 style: const TextStyle(
                                                     fontSize: 13),
                                                 textInputAction:
-                                                    TextInputAction.done,
+                                                    TextInputAction.next,
                                                 controller: controlerKeterangan,
                                                 onChanged: (val) {
                                                   transaksi.keterangan = val;
@@ -516,7 +516,7 @@ listMobil.sort((a, b){ //sorting in ascending order
                                               style:
                                                   const TextStyle(fontSize: 13),
                                               textInputAction:
-                                                  TextInputAction.next,
+                                                  TextInputAction.done,
                                               controller: controlerKeluar,
                                               keyboardType:
                                                   TextInputType.number,
@@ -559,7 +559,7 @@ listMobil.sort((a, b){ //sorting in ascending order
                                               style:
                                                   const TextStyle(fontSize: 13),
                                               textInputAction:
-                                                  TextInputAction.next,
+                                                  TextInputAction.done,
                                               keyboardType:
                                                   TextInputType.number,
                                               controller: controlerSisa,
@@ -598,8 +598,8 @@ listMobil.sort((a, b){ //sorting in ascending order
                                                         'Tidak boleh minus' ||
                                                     transaksi.mobil ==
                                                         'Mobil' ||
-                                                    transaksi.ongkos == 0 ||
-                                                    transaksi.keluar == 0)
+                                                    transaksi.ongkos == 0
+                                                   )
                                                 ? null
                                                 : () async {
                                                     var data = await Service
