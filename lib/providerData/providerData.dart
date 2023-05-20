@@ -473,14 +473,11 @@ late User user;
     for (Transaksi data in backupTransaksi) {
 
 
-      // data.supir = listSupir
-      //     .firstWhere((element) => element.id == data.id_supir)
-      //     .nama_supir;
-      // data.mobil = listMobil
-      //     .firstWhere((element) => element.nama_mobil == data.mobil)
-      //     .nama_mobil;
-      data.keterangan_mobill = listMobil
-          .firstWhere((element) => element.id == data.id_mobil)
+      data.keterangan_mobill = backupListMobil
+          .firstWhere((element) => element.id == data.id_mobil,orElse: () {
+            log("errot");
+            return backupListMobil[0];
+          },)
           .keterangan_mobill;
     }
   }

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:gabriel_logistik/examples.dart';
 import 'package:gabriel_logistik/mobil/mobil_tile.dart';
 import 'package:gabriel_logistik/mobil/tambah_mobil.dart';
 import 'package:gabriel_logistik/models/perbaikan.dart';
+import 'package:gabriel_logistik/print_unitku.dart';
 import 'package:gabriel_logistik/providerData/providerData.dart';
 import 'package:gabriel_logistik/services/service.dart';
 import 'package:provider/provider.dart';
 import 'package:gabriel_logistik/helper/custompaint.dart';
+import '../models/history_saldo2.dart';
 import '../models/mobil.dart';
+import '../print_dynamic.dart';
 class DaftarMobil extends StatefulWidget {
   const DaftarMobil({super.key});
 
@@ -51,99 +55,113 @@ loading = false;
         ? Center(
             child: CustomPaints(),
           )
-        :  Container(
-        padding: const EdgeInsets.only(left: 25, right: 25, top: 0, bottom: 25),
-        decoration: BoxDecoration(
-            border: Border.all(
-                color: Theme.of(context).primaryColor.withOpacity(0.2),
-                width: 10,
-                strokeAlign: StrokeAlign.center),
-            color: const Color.fromRGBO(244, 244, 252, 1),
-            borderRadius: BorderRadius.circular(10)),
-        width: MediaQuery.of(context).size.width * 0.7,
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(bottom: 30),
-              padding: const EdgeInsets.only(
-                  right: 30, left: 30, bottom: 10, top: 5),
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.secondary,
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(5),
-                      bottomRight: Radius.circular(5))),
-              child: const Text(
-                'Daftar Mobil',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Nunito',
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold),
-              ),
+        : 
+              Consumer<ProviderData>(builder: (context, c, h) {
+                List<Mobil> data=c.listMobil.reversed.toList().where((element) => element.terjual==false).toList();
+            
+        
+                return   Scaffold(floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.green,
+            child: const Icon(
+              Icons.print,
+              color: Colors.white,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height / 20,
-                    child: TextFormField(
-                      style: const TextStyle(fontSize: 13),
-                      textInputAction: TextInputAction.next,
-                      decoration: const InputDecoration(hintText: 'Cari'),
-                      onChanged: (val) {
-                        Provider.of<ProviderData>(context, listen: false)
-                            .searchMobil(val.toLowerCase(), true);
-                      },
-                    ),
-                  ),
+            onPressed: () {
+              
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => PrintUnitKu( data.map((e) => HistorySaldo2("Daftar Mobil", e.nama_mobil,
+                 e.keterangan_mobill, 0 ,"", )).toList()),
+              ));
+            }),
+          body: Container(
+          padding: const EdgeInsets.only(left: 25, right: 25, top: 0, bottom: 25),
+          decoration: BoxDecoration(
+              border: Border.all(
+                  color: Theme.of(context).primaryColor.withOpacity(0.2),
+                  width: 10,
+                  strokeAlign: StrokeAlign.center),
+              color: const Color.fromRGBO(244, 244, 252, 1),
+              borderRadius: BorderRadius.circular(10)),
+          width:double.infinity,
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(bottom: 30),
+                padding: const EdgeInsets.only(
+                    right: 30, left: 30, bottom: 10, top: 5),
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(5),
+                        bottomRight: Radius.circular(5))),
+                child: const Text(
+                  'Daftar Mobil',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Nunito',
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold),
                 ),
-                const Expanded(flex: 4, child: SizedBox()),
-                TambahMobil()
-              ],
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 15),
-              color: Theme.of(context).primaryColor,
-              padding:
-                  const EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
-              child: Row(
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                      flex: 11,
-                      child: Text(
-                        'No Pol',
-                        style: Theme.of(context).textTheme.displayMedium,
-                      )),
-                  Expanded(
-                      flex: 11,
-                      child: Text('Keterangan',
-                          style: Theme.of(context).textTheme.displayMedium)),
-                  Expanded(
-                      flex: 3,
-                      child: Text(' Aksi',
-                          style: Theme.of(context).textTheme.displayMedium))
+                    flex: 1,
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height / 20,
+                      child: TextFormField(
+                        style: const TextStyle(fontSize: 13),
+                        textInputAction: TextInputAction.next,
+                        decoration: const InputDecoration(hintText: 'Cari'),
+                        onChanged: (val) {
+                          Provider.of<ProviderData>(context, listen: false)
+                              .searchMobil(val.toLowerCase(), true);
+                        },
+                      ),
+                    ),
+                  ),
+                  const Expanded(flex: 4, child: SizedBox()),
+                  TambahMobil()
                 ],
               ),
-            ),
-            Consumer<ProviderData>(builder: (context, c, h) {
-              List<Mobil> data=c.listMobil.reversed.toList().where((element) => element.terjual==false).toList();
+              Container(
+                margin: const EdgeInsets.only(top: 15),
+                color: Theme.of(context).primaryColor,
+                padding:
+                    const EdgeInsets.only(top: 8, bottom: 8, left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                        flex: 11,
+                        child: Text(
+                          'No Pol',
+                          style: Theme.of(context).textTheme.displayMedium,
+                        )),
+                    Expanded(
+                        flex: 11,
+                        child: Text('Keterangan',
+                            style: Theme.of(context).textTheme.displayMedium)),
+                    Expanded(
+                        flex: 3,
+                        child: Text(' Aksi',
+                            style: Theme.of(context).textTheme.displayMedium))
+                  ],
+                ),
+              ),SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.7,
+                    child: ListView.builder(
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                         
+                return
+                        MobilTile(data[index], index);
+              }))])));
+              });
+            
           
-
-              return SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.7,
-                  child: ListView.builder(
-                    itemCount: data.length,
-                    itemBuilder: (context, index) {
-                       
-              return
-                      MobilTile(data[index], index);
-            }));
-            })
-          ],
-        ));
+        
   }
 }

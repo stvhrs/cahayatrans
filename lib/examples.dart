@@ -8,6 +8,7 @@ import 'package:gabriel_logistik/print_bulanan.dart';
 import 'package:gabriel_logistik/print_laba.dart';
 import 'package:gabriel_logistik/print_mutasi.dart';
 import 'package:gabriel_logistik/print_tahunan.dart';
+import 'package:gabriel_logistik/print_unit.dart';
 import 'package:pdf/pdf.dart';
 
 import 'models/history_saldo.dart';
@@ -28,6 +29,18 @@ const examples2 = [
 const examples4 = [
   Example4(generateResume4, true),
 ];
+const examples10 = [
+  PrintUnit(printUnit, true),
+];
+class PrintUnit {
+  const PrintUnit(this.builder, [this.needsData = false]);
+
+  final LayoutCallbackWithData10 builder;
+
+  final bool needsData;
+}typedef LayoutCallbackWithData10 = Future<Uint8List> Function(
+    PdfPageFormat pageFormat, List<HistorySaldo2> list, );
+
 class PrintAll {
   const PrintAll(this.builder, [this.needsData = false]);
 
