@@ -14,6 +14,7 @@ import 'package:web_date_picker/web_date_picker.dart';
 import '../helper/dropdown.dart';
 import '../helper/input_currency.dart';
 import '../models/mobil.dart';
+import '../transaksi/datepicer.dart';
 
 class AdministrasiAdd extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class AdministrasiAdd extends StatefulWidget {
 
 class _AdministrasiAddState extends State<AdministrasiAdd> {
   List<String> listMobil = [];
-
+ FocusNode fd = FocusNode();
   @override
   void initState() {
     List<Mobil> temp = Provider.of<ProviderData>(context, listen: false)
@@ -159,7 +160,7 @@ TextEditingController satu4=TextEditingController();
                               child: Column(
                                 children: [
                                   _buildSize(
-                                      WebDatePicker(
+                                       Picker(fd: fd,
                                         lastDate: DateTime.now(),
                                         height: 60,
                                         initialDate: DateTime.now(),

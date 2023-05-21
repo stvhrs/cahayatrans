@@ -11,6 +11,7 @@ import 'package:web_date_picker/web_date_picker.dart';
 
 import '../helper/input_currency.dart';
 import '../models/mobil.dart';
+import 'datepicer.dart';
 
 class TransaksiView extends StatefulWidget {
   Transaksi transaksi;
@@ -59,7 +60,7 @@ class _TransaksiViewState extends State<TransaksiView> {
 controlerKetMobil.text=transaksi.keterangan_mobill;
     super.initState();
   }
-
+ FocusNode fd = FocusNode();
 
   late Transaksi transaksi;
   Widget _buildSize(widget, String ket, int flex) {
@@ -161,7 +162,7 @@ controlerKetMobil.text=transaksi.keterangan_mobill;
                                             CrossAxisAlignment.start,
                                         children: [
                                           _buildSize(
-                                                   WebDatePicker(lastDate: DateTime.now(),
+                                                    Picker(lastDate: DateTime.now(),fd:fd ,
                                                 height: 60,
                                                 initialDate:DateTime.parse(widget.transaksi.tanggalBerangkat) ,
                                                 dateformat: 'dd/MM/yyyy',

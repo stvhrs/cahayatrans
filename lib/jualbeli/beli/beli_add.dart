@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 import 'package:web_date_picker/web_date_picker.dart';
 
 import '../../helper/input_currency.dart';
+import '../../transaksi/datepicer.dart';
 
 class BeliAdd extends StatefulWidget {
   @override
@@ -59,7 +60,7 @@ class _BeliAddState extends State<BeliAdd> {
           ],
         ));
   }
-
+ FocusNode fd = FocusNode();
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -132,8 +133,8 @@ class _BeliAddState extends State<BeliAdd> {
                                     child: Image.asset('images/jb.png',width: 100,),
                                   ),
                                   _buildSize(
-                                      WebDatePicker(
-                                        lastDate: DateTime.now(),
+                                       Picker(
+                                        lastDate: DateTime.now(),fd: fd,
                                         height: 60,
                                         initialDate: DateTime.now(),
                                         dateformat: 'dd/MM/yyyy',

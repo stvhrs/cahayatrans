@@ -13,6 +13,7 @@ import 'package:web_date_picker/web_date_picker.dart';
 
 import '../helper/dropdown.dart';
 import '../helper/input_currency.dart';
+import '../transaksi/datepicer.dart';
 
 class AdministrasiEdit extends StatefulWidget {
   final Perbaikan perbaikan;
@@ -66,7 +67,7 @@ Widget _buildSize(widget, String ket, int flex) {
             ],
           ));
     
-  }
+  } FocusNode fd = FocusNode();
   @override
   Widget build(BuildContext context) {
         perbaikan=widget.perbaikan;
@@ -136,7 +137,7 @@ Widget _buildSize(widget, String ket, int flex) {
                                 children: [
                                  
                                       _buildSize(
-                                               WebDatePicker(lastDate: DateTime.now(),
+                                                Picker(lastDate: DateTime.now(),fd:fd ,
                                             height: 60,
                                             initialDate: DateTime.parse(
                                                 widget.perbaikan.tanggal),

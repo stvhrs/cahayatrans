@@ -14,6 +14,7 @@ import 'package:web_date_picker/web_date_picker.dart';
 
 import '../helper/dropdown.dart';
 import '../helper/input_currency.dart';
+import '../transaksi/datepicer.dart';
 
 class EditPendaptan extends StatefulWidget {
   final MutasiSaldo perbaikan;
@@ -68,7 +69,7 @@ class _EditPendaptanState extends State<EditPendaptan> {
           ));
     
   }
-
+ FocusNode fd = FocusNode();
   @override
   Widget build(BuildContext context) {
       
@@ -134,7 +135,7 @@ class _EditPendaptanState extends State<EditPendaptan> {
                                 children: [
                                  
                                       _buildSize(
-                                               WebDatePicker(lastDate: DateTime.now(),
+                                                Picker(lastDate: DateTime.now(),fd: fd,
                                             height: 60,
                                             initialDate: DateTime.parse(
                                                 widget.perbaikan.tanggal),

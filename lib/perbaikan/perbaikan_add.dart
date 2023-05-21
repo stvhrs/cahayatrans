@@ -17,6 +17,7 @@ import '../helper/dropdown.dart';
 import '../helper/format_tanggal.dart';
 import '../helper/input_currency.dart';
 import '../services/service.dart';
+import '../transaksi/datepicer.dart';
 
 class PerbaikanAdd extends StatefulWidget {
   final bool isPerbaikan;
@@ -227,7 +228,7 @@ Widget _buildSize2(widget, String ket, int flex) {
                                           child: Column(
                                             children: [
                                               _buildSize(
-                                                  WebDatePicker(
+                                                   Picker( fd: fd,
                                                     lastDate: DateTime.now(),
                                                     height: 36,
                                                     initialDate: DateTime.now(),
@@ -264,7 +265,7 @@ Widget _buildSize2(widget, String ket, int flex) {
                                                   1),
                                               _buildSize(
                                                   TextFormField(
-                                                    focusNode: fd,
+                                                  
                                                     style: const TextStyle(
                                                         fontSize: 13),
                                                     textInputAction:
@@ -279,10 +280,22 @@ Widget _buildSize2(widget, String ket, int flex) {
                                                widget.isPerbaikan?  "Jenis Perbaikan":"Jenis Administrasi",
                                                   1), _buildSize(
                                                   TextFormField(
+                                                      style: const TextStyle(
+                                                          fontSize: 13),
+                                                      textInputAction:
+                                                          TextInputAction.next,
+                                                      controller: nomorNota,
+                                                      onChanged: (val) {
+                                                        perbaikan.jenis = val;
+                                                        setState(() {});
+                                                      }),
+                                                  "Keterangan",
+                                                  2),_buildSize(
+                                                  TextFormField(
                                                     style: const TextStyle(
                                                         fontSize: 13),
                                                     textInputAction:
-                                                        TextInputAction.next,
+                                                        TextInputAction.done,
                                                     controller: controlerHarga,
                                                     onChanged: (va) {
                                                       if (va.isNotEmpty &&
@@ -304,19 +317,7 @@ Widget _buildSize2(widget, String ket, int flex) {
                                                   ),
                                               widget.isPerbaikan?  "Nominal Perbaikan":"Nominal Administrasi",
                                                   1),
-                                              _buildSize(
-                                                  TextFormField(
-                                                      style: const TextStyle(
-                                                          fontSize: 13),
-                                                      textInputAction:
-                                                          TextInputAction.done,
-                                                      controller: nomorNota,
-                                                      onChanged: (val) {
-                                                        perbaikan.jenis = val;
-                                                        setState(() {});
-                                                      }),
-                                                  "Keterangan",
-                                                  2),
+                                              
                                              
                                             ],
                                           ),

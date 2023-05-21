@@ -12,6 +12,7 @@ import 'package:web_date_picker/web_date_picker.dart';
 
 import '../../helper/input_currency.dart';
 import '../../services/service.dart';
+import '../../transaksi/datepicer.dart';
 
 class BeliEdit extends StatefulWidget {
   final JualBeliMobil jualBeliMobil;
@@ -23,7 +24,7 @@ class BeliEdit extends StatefulWidget {
 class _BeliEditState extends State<BeliEdit> {
   final RoundedLoadingButtonController _btnController =
       RoundedLoadingButtonController();
-
+ FocusNode fd = FocusNode();
   TextStyle small = const TextStyle(fontSize: 13.5);
 Widget _buildSize(widget, String ket, int flex) {
     return Container(
@@ -125,7 +126,7 @@ Widget _buildSize(widget, String ket, int flex) {
                                   ),
                                  
                                       _buildSize(
-                                          WebDatePicker(
+                                           Picker(fd: fd,
                                             lastDate: DateTime.now(),
                                             height: 60,
                                             initialDate: DateTime.now(),

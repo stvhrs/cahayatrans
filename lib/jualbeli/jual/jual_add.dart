@@ -14,6 +14,7 @@ import 'package:web_date_picker/web_date_picker.dart';
 import '../../helper/dropdown.dart';
 import '../../helper/input_currency.dart';
 import '../../services/service.dart';
+import '../../transaksi/datepicer.dart';
 
 class JualAdd extends StatefulWidget {
   @override
@@ -81,7 +82,7 @@ class _JualAddState extends State<JualAdd> {
           ));
     
   }
-
+ FocusNode fd = FocusNode();
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -154,7 +155,7 @@ class _JualAddState extends State<JualAdd> {
                                     child: Image.asset('images/jb.png',width: 100,),
                                   ),
                                       _buildSize(
-                                          WebDatePicker(
+                                           Picker(fd: fd,
                                             lastDate: DateTime.now(),
                                             height: 60,
                                             initialDate: DateTime.now(),

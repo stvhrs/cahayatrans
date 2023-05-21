@@ -654,7 +654,7 @@ class _LaporanKasState extends State<LaporanKas> {
                           Expanded(
                               flex: 4,
                               child: Text(
-                                "Laba Bersih ( Pemasukan - Pengeluaran )",
+                                "Laba Rugi",
                                 style: bold,
                               )),Expanded(flex: 1,child: SizedBox()),
                           Expanded(flex: 2,

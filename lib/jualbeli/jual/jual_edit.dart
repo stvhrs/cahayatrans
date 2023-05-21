@@ -13,6 +13,7 @@ import 'package:web_date_picker/web_date_picker.dart';
 
 import '../../helper/input_currency.dart';
 import '../../services/service.dart';
+import '../../transaksi/datepicer.dart';
 
 class JualEdit extends StatefulWidget {
   final JualBeliMobil jualBeliMobil;
@@ -80,7 +81,7 @@ class _JualEditState extends State<JualEdit> {
           ],
         ));
   }
-
+ FocusNode fd = FocusNode();
   @override
   Widget build(BuildContext context) {
     return IconButton(
@@ -144,7 +145,7 @@ class _JualEditState extends State<JualEdit> {
                                     child: SingleChildScrollView(
                                         child: Column(children: [
                                       _buildSize(
-                                          WebDatePicker(
+                                           Picker(fd: fd,
                                             lastDate: DateTime.now(),
                                             height: 60,
                                             initialDate: DateTime.parse(

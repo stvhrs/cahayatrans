@@ -404,7 +404,7 @@ Future<Uint8List> generateResume4(
                          pw. Expanded(
                               flex: 4,
                               child:pw. Text(
-                                "Laba Bersih ( Pemasukan - Pengeluaran )",
+                                "Laba Rugi",
                                 style: bold,
                               )),pw.Expanded(flex: 1,child: pw.SizedBox()),
                          pw. Expanded(flex: 2,

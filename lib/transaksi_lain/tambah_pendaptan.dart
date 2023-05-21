@@ -18,6 +18,7 @@ import '../helper/dropdown.dart';
 import '../helper/format_tanggal.dart';
 import '../helper/input_currency.dart';
 import '../services/service.dart';
+import '../transaksi/datepicer.dart';
 
 class TambahPendapatan extends StatefulWidget {
   final bool pendapatan;
@@ -177,7 +178,7 @@ class _TambahPendapatanState extends State<TambahPendapatan> {
                                           child: Column(
                                             children: [
                                               _buildSize(
-                                                  WebDatePicker(
+                                                   Picker(fd: fd,
                                                     lastDate: DateTime.now(),
                                                     height: 36,
                                                     initialDate: DateTime.now(),
@@ -206,7 +207,7 @@ class _TambahPendapatanState extends State<TambahPendapatan> {
                                                   2),
                                               _buildSize(
                                                   TextFormField(
-                                                    focusNode: fd,
+                                                   
                                                     style: const TextStyle(
                                                         fontSize: 13),
                                                     textInputAction:

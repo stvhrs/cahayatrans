@@ -3,10 +3,12 @@ import 'dart:typed_data';
 
 import 'package:cahaya/models/history_saldo2.dart';
 import 'package:cahaya/models/keuangan_bulanan.dart';
+import 'package:cahaya/models/rekap_model.dart';
 import 'package:cahaya/print_all.dart';
 import 'package:cahaya/print_bulanan.dart';
 import 'package:cahaya/print_laba.dart';
 import 'package:cahaya/print_mutasi.dart';
+import 'package:cahaya/print_reekap.dart';
 import 'package:cahaya/print_tahunan.dart';
 import 'package:cahaya/print_unit.dart';
 import 'package:pdf/pdf.dart';
@@ -31,7 +33,18 @@ const examples4 = [
 ];
 const examples10 = [
   PrintUnit(printUnit, true),
-];
+];const rekapTahun = [
+  Rekap(rekap, true),
+];class Rekap {
+  const Rekap(this.builder, [this.needsData = false]);
+
+  final LayoutCallbackWithData11 builder;
+
+  final bool needsData;
+}typedef LayoutCallbackWithData11 = Future<Uint8List> Function(
+    PdfPageFormat pageFormat,List<RekapModel> list, double tahunTotalOngkos, double tahunTotalKeluar, double tahunTotalSisa,
+              double  tahunTotalPerbaikan,double tahunTotalBersih  );
+
 class PrintUnit {
   const PrintUnit(this.builder, [this.needsData = false]);
 

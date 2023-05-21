@@ -13,6 +13,7 @@ import 'package:web_date_picker/web_date_picker.dart';
 
 import '../helper/dropdown.dart';
 import '../helper/input_currency.dart';
+import '../transaksi/datepicer.dart';
 
 class PerbaikanEdit extends StatefulWidget {
   final Perbaikan perbaikan;
@@ -137,8 +138,8 @@ class _PerbaikanEditState extends State<PerbaikanEdit> {
                                 children: [
                                  
                                       _buildSize(
-                                               WebDatePicker(lastDate: DateTime.now(),
-                                            height: 60,
+                                                Picker(lastDate: DateTime.now(),
+                                            height: 60,fd: FocusNode(),
                                             initialDate: DateTime.parse(
                                                 widget.perbaikan.tanggal),
                                             dateformat: 'dd/MM/yyyy',
