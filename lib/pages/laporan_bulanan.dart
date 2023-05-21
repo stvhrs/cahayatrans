@@ -42,11 +42,12 @@ class _LaporanBulananState extends State<LaporanBulanan> {
   int ropdownValue2 = DateTime.now().year;
   late List<Mobil> data;
   List<KeuanganBulanan> printed = [];
+  List<KeuanganBulanan> backup = [];
   String value = "Semua";
+
   @override
   void initState() {
     data = Provider.of<ProviderData>(context, listen: false).backupListMobil;
-  
     for (var element
         in Provider.of<ProviderData>(context, listen: false).listTransaksi) {
       if (!tahun.contains(DateTime.parse(element.tanggalBerangkat).year)) {
@@ -57,7 +58,6 @@ class _LaporanBulananState extends State<LaporanBulanan> {
       tahun.add(ropdownValue2);
     }
     super.initState();
-  
   }
 
   @override
@@ -70,26 +70,34 @@ class _LaporanBulananState extends State<LaporanBulanan> {
     });
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.green,
-          child: const Icon(
-            Icons.print,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            if (printed.isNotEmpty
-                ) {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                data.sort((a, b) {
-                  //sorting in ascending order
-                  return a.nama_mobil[0]
-                      .toLowerCase()
-                      .compareTo(b.nama_mobil[0].toLowerCase());
-                });
-                return LaporanPrint(printed);
-              }));
-            }
-          }),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
+      floatingActionButton: Padding(
+          padding: const EdgeInsets.only(left: 50, top: 50),
+          child: Padding(
+              padding: const EdgeInsets.only(),
+              child: ElevatedButton.icon(
+                  icon: const Icon(
+                    Icons.print,
+                    color: Colors.white,
+                  ),
+                  label: Text(
+                    "Print Laporan",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () {
+                    if (printed.isNotEmpty) {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        data.sort((a, b) {
+                          //sorting in ascending order
+                          return a.nama_mobil[0]
+                              .toLowerCase()
+                              .compareTo(b.nama_mobil[0].toLowerCase());
+                        });
+                        return LaporanPrint(printed);
+                      }));
+                    }
+                  }))),
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -98,7 +106,8 @@ class _LaporanBulananState extends State<LaporanBulanan> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(margin: EdgeInsets.only(bottom: 20),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 20),
                     child: Row(
                       children: [
                         DropdownButton2<int>(
@@ -164,7 +173,7 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.89,
                     child: ListView(
-                        padding: EdgeInsets.only(right: 20,bottom: 0),
+                        padding: EdgeInsets.only(right: 5, top: 20),
                         children: data
                             .where((element) => value == "Semua"
                                 ? element.nama_mobil.isNotEmpty
@@ -229,12 +238,19 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                           }
 
                           if (value != "Semua") {
-                            var keuangan = printed.firstWhere(
-                                (element) => element.namaMobil == value);
+                            var keuangan = backup.firstWhere(
+                                (element) => element.namaMobil == value,
+                                orElse: () {
+                              return backup[0];
+                            });
                             printed = [keuangan];
                           } else {
-                            if(!printed.map((e) => e.namaMobil).contains(data.namaMobil)){ printed.add(data);}
-                           
+                            if (!printed
+                                .map((e) => e.namaMobil)
+                                .contains(data.namaMobil)) {
+                              printed.add(data);
+                              backup.add(data);
+                            }
                           }
 
                           return Bulanan(data);
@@ -243,7 +259,7 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                 ]),
           ),
           Positioned(
-            top: 10,
+            top: 15,
             child: SizedBox(
               width: 200,
               child: LaporanDropDownField(
@@ -266,9 +282,8 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                       printed = [keuangan];
                     }
 
-                    enable = false;
+                    // enable = false;
                   } else {
-                   
                     data = Provider.of<ProviderData>(context, listen: false)
                         .backupListMobil;
                   }

@@ -81,17 +81,7 @@ List<Perbaikan> data=[];
               //   c.listSupir = c.listSupir;
               // }
 
-              return Scaffold(floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.green,
-            child: const Icon(
-              Icons.print,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => PrintDynamic(data.map((e) => HistorySaldo2("Administrasi", e.keterangan, e.mobil, e.harga, e.tanggal, )).toList()),
-              ));
-            }),
+              return Scaffold(
                 body:  Center(
                   child: Container(width:double.infinity,
                         padding: const EdgeInsets.only(left: 25, right: 25, top: 0, bottom: 25),
@@ -125,7 +115,7 @@ List<Perbaikan> data=[];
                             ),
                             Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(
                       flex: 1,
@@ -143,7 +133,23 @@ List<Perbaikan> data=[];
                         ),
                       ),
                     ),
-                    const Expanded(flex: 4, child: SizedBox()),
+                    const Expanded(flex: 4, child: SizedBox()),Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: ElevatedButton.icon(
+        icon: const Icon(
+          Icons.print,
+          color: Colors.white,
+        ),
+        label: Text(
+          "Print Administrasi",
+          style: TextStyle(color: Colors.white),
+        ),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => PrintDynamic(data.map((e) => HistorySaldo2("Administrasi", e.keterangan, e.mobil, e.harga, e.tanggal, )).toList()),
+              ));
+            }),
+                    ),
                     PerbaikanAdd(false)
                   ],
                             ),

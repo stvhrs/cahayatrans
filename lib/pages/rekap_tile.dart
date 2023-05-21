@@ -27,8 +27,8 @@ class _RekapState extends State<Rekap> {
         decoration: BoxDecoration(
             color: index.isEven ? Colors.grey.shade200 : Colors.white),
         padding: const EdgeInsets.only(
-          top: 7,
-          bottom: 7,
+          top: 5,
+          bottom: 5,
           left: 15,
         ),
         child: Row(
@@ -165,12 +165,12 @@ class _RekapState extends State<Rekap> {
                   ],
                 ),
               ),
-              ...buildChildren(),
+              ...buildChildren(),Divider(color: Colors.black,),
               widget.kasModel.isEmpty
                   ? const SizedBox()
                  :  Padding(
                       padding: const EdgeInsets.only(
-                          top: 40, bottom: 8, left: 15, right: 20),
+                          top: 0, bottom: 8, left: 15, right: 20),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.end,

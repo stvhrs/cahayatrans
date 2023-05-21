@@ -337,7 +337,7 @@ class _BulananState extends State<Bulanan> {
                       ),
                       ...buildChildren2(),
                     ],
-                  ),
+                  ),Divider(color: Colors.black,),
             widget.laporanBulanan.transaksiBulanIni.isEmpty
                 ? const SizedBox()
                 : Padding(

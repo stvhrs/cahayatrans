@@ -47,17 +47,7 @@ class _MutasiSaldoPageState extends State<MutasiSaldoPage> {
   Widget build(BuildContext context) {
     return Consumer<ProviderData>(
       builder: (context, value, child) => Scaffold(
-        floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.green,
-            child: const Icon(
-              Icons.print,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => MutasiPrint(value.listHistorySaldo),
-              ));
-            }),
+        
         body: Container(
             padding:
                 const EdgeInsets.only(left: 25, right: 25, top: 0, bottom: 15),
@@ -100,9 +90,25 @@ class _MutasiSaldoPageState extends State<MutasiSaldoPage> {
                     Expanded(
                         child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SearchMutasi(),
+                        const SearchMutasi(),Spacer(),Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: ElevatedButton.icon(
+        icon: const Icon(
+          Icons.print,
+          color: Colors.white,
+        ),
+        label: Text(
+          "Print Mutasi",
+          style: TextStyle(color: Colors.white),
+        ),
+            onPressed: () {
+               Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => MutasiPrint(value.listHistorySaldo),
+              ));
+            }),
+                    ),
                         Text(Provider.of<ProviderData>(context, listen: false)
                                       .isOwner
                                   ? 'Saldo : ${Rupiah.format(value.totalSaldo)}':"",

@@ -185,7 +185,7 @@ double totalSisaBulanIni=0;
                 children: [
                   const Padding(
                     padding: EdgeInsets.all(10),
-                    child: Text('Grafik Saldo ',style: TextStyle(fontFamily: 'Nunito',fontWeight: FontWeight.bold,fontSize: 20),),
+                    child: Text('Grafik  ',style: TextStyle(fontFamily: 'Nunito',fontWeight: FontWeight.bold,fontSize: 20),),
                   ),
                   const Divider(height: 1,color: Colors.black,),
                   Container(

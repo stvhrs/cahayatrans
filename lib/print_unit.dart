@@ -95,7 +95,7 @@ Future<Uint8List> printUnit(
                               children: [
                                 pw.Expanded(
                                     flex: 5,
-                                    child: pw.Text('Mobil', style: bold)),
+                                    child: pw.Text('Nama', style: bold)),
                                
                              
                                 pw.Expanded(

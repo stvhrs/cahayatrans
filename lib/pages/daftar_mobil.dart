@@ -60,19 +60,7 @@ loading = false;
                 List<Mobil> data=c.listMobil.reversed.toList().where((element) => element.terjual==false).toList();
             
         
-                return   Scaffold(floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.green,
-            child: const Icon(
-              Icons.print,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => PrintUnitKu( data.map((e) => HistorySaldo2("Daftar Mobil", e.nama_mobil,
-                 e.keterangan_mobill, 0 ,"", )).toList()),
-              ));
-            }),
+                return   Scaffold(
           body: Container(
           padding: const EdgeInsets.only(left: 25, right: 25, top: 0, bottom: 25),
           decoration: BoxDecoration(
@@ -105,7 +93,7 @@ loading = false;
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     flex: 1,
@@ -121,8 +109,26 @@ loading = false;
                         },
                       ),
                     ),
+                  ),Expanded(flex: 4,child: SizedBox()),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: ElevatedButton.icon(
+        icon: const Icon(
+          Icons.print,
+          color: Colors.white,
+        ),
+        label: Text(
+          "Print Mobil",
+          style: TextStyle(color: Colors.white),
+        ),
+            onPressed: () {
+              
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => PrintUnitKu( data.map((e) => HistorySaldo2("Daftar Mobil", e.nama_mobil,
+                 e.keterangan_mobill, 0 ,"", )).toList()),
+              ));
+            }),
                   ),
-                  const Expanded(flex: 4, child: SizedBox()),
                   TambahMobil()
                 ],
               ),

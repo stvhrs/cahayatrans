@@ -76,19 +76,7 @@ loading = false;
           .compareTo(DateTime.parse(a.tanggal)));
                
               
-                return Scaffold(floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.green,
-            child: const Icon(
-              Icons.print,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => PrintDynamic( listMutasi.map((e) => HistorySaldo2("Nota Pemasukan", e.keterangan,
-                 e.nota, e.harga, e.tanggal, )).toList()),
-              ));
-            }),
+                return Scaffold(
                 body:  Center(
                   child: Container(
           padding: const EdgeInsets.only(left: 25, right: 25, top: 0, bottom: 25),
@@ -130,7 +118,24 @@ loading = false;
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children:
                                   [
-                                          const Spacer(),
+                                          const Spacer(),Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: ElevatedButton.icon(
+        icon: const Icon(
+          Icons.print,
+          color: Colors.white,
+        ),
+        label: Text(
+          "Print Pemasukan",
+          style: TextStyle(color: Colors.white),
+        ),
+            onPressed: () {
+               Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => PrintDynamic( listMutasi.map((e) => HistorySaldo2("Nota Pemasukan", e.keterangan,
+                 e.nota, e.harga, e.tanggal, )).toList()),
+              ));
+            }),
+                    ),
                                            TambahPendapatan( true)
                                         ]
                                      ),

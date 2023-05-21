@@ -70,161 +70,163 @@ class _TransaksiPageState extends State<TransaksiPage> {
                 .compareTo(DateTime.parse(a.tanggalBerangkat)));
             return Scaffold(
                 resizeToAvoidBottomInset: false,
-                floatingActionButton: TransaksiAdd(),
-                body: Padding(
-                    padding: const EdgeInsets.only(left: 25, right: 25, top: 4),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // FutureBuilder(
-                        //   future: Service.test(),
-                        //   builder: (context, snapshotx) => snapshotx
-                        //               .connectionState ==
-                        //           ConnectionState.waiting
-                        //       ? const CustomPaints()
-                        //       : Text(
+               
+                body: 
+                    Padding(
+                        padding: const EdgeInsets.only(left: 25, right: 25, top: 4),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // FutureBuilder(
+                            //   future: Service.test(),
+                            //   builder: (context, snapshotx) => snapshotx
+                            //               .connectionState ==
+                            //           ConnectionState.waiting
+                            //       ? const CustomPaints()
+                            //       : Text(
 
-                        //           jsonDecode(snapshotx.data!)['data'].toString()),
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 5),
-                          child: Card(
-                            color: Theme.of(context).colorScheme.secondary,
-                            shadowColor: Theme.of(context).colorScheme.primary,
-                            surfaceTintColor:
-                                Theme.of(context).colorScheme.secondary,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
+                            //           jsonDecode(snapshotx.data!)['data'].toString()),
+                            Container(
+                              margin: const EdgeInsets.only(bottom: 5),
+                              child: Card(
+                                color: Theme.of(context).colorScheme.secondary,
+                                shadowColor: Theme.of(context).colorScheme.primary,
+                                surfaceTintColor:
+                                    Theme.of(context).colorScheme.secondary,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8),
+                                  child: Column(
                                     children: [
-                                      Expanded(
-                                        child: Image.asset('images/search.png',
-                                            height: 30),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Expanded( flex: 3,child: Padding(
+                                            padding: const EdgeInsets.only(right: 20),
+                                            child: TransaksiAdd(),
+                                          )),
+                                          const Expanded(
+                                              flex: 4, child: SearchTanggal()),
+                                          const Expanded(
+                                              flex: 4, child: SearchNama()),
+                                          const Expanded(
+                                              flex: 4, child: SearchMobil()),
+                                          const Expanded(
+                                              flex: 4, child: SearchTujuan()),
+                                          // Expanded(child: SearchPerbaikan()),
+                                        ],
                                       ),
-                                      const Expanded(
-                                          flex: 4, child: SearchTanggal()),
-                                      const Expanded(
-                                          flex: 4, child: SearchNama()),
-                                      const Expanded(
-                                          flex: 4, child: SearchMobil()),
-                                      const Expanded(
-                                          flex: 4, child: SearchTujuan()),
-                                      // Expanded(child: SearchPerbaikan()),
                                     ],
                                   ),
+                                ),
+                              ),
+                            ),
+
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(5),
+                                      topRight: Radius.circular(5))),
+                              margin: const EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(
+                                  top: 10, bottom: 12.5, left: 15, right: 15),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        'No',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
+                                  Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        'Tanggal',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
+                                  Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        'No Pol',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
+                                  Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        'Driver',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
+                                  Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        'Tujuan',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
+                                  Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        'Keterangan',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
+                                  Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        'Tarif',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
+                                  Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        'Keluar',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
+                                  Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        'Sisa',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
+                                  Expanded(
+                                      flex: 5,
+                                      child: Text(
+                                        textAlign: TextAlign.center,
+                                        'Action',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayMedium,
+                                      )),
                                 ],
                               ),
                             ),
-                          ),
-                        ),
-
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.primary,
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(5),
-                                  topRight: Radius.circular(5))),
-                          margin: const EdgeInsets.only(top: 5),
-                          padding: const EdgeInsets.only(
-                              top: 10, bottom: 12.5, left: 15, right: 15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'No',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                              Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    'Tanggal',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                              Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    'No Pol',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                              Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    'Driver',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                              Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    'Tujuan',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                              Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    'Keterangan',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                              Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    'Tarif',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                              Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    'Keluar',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                              Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    'Sisa',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                              Expanded(
-                                  flex: 5,
-                                  child: Text(
-                                    textAlign: TextAlign.center,
-                                    'Action',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayMedium,
-                                  )),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          // height: MediaQuery.of(context).size.height * 0.7,
-                          child: ListView.builder(
-                              itemCount: data.length,
-                              itemBuilder: (context, index) =>
-                                  TransaksiTile(data[index], index + 1)),
-                        ),
-                      ],
-                    )));
+                            Expanded(
+                              // height: MediaQuery.of(context).size.height * 0.7,
+                              child: ListView.builder(
+                                  itemCount: data.length,
+                                  itemBuilder: (context, index) =>
+                                      TransaksiTile(data[index], index + 1)),
+                            ),
+                          ],
+                        )
+                ));
           });
   }
 }

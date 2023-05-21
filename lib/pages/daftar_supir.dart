@@ -56,19 +56,7 @@ loading = false;
         : 
             Consumer<ProviderData>(builder: (context, c, h) {
              List<Supir> data=c.listSupir.reversed.toList() .where((element) => element.delted==false) .toList().reversed.toList();
-              return Scaffold(floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.green,
-            child: const Icon(
-              Icons.print,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => PrintUnitKu( data.map((e) => HistorySaldo2("Daftar Driver", e.nama_supir,
-                 e.nohp_supir, 0 ,"", )).toList()),
-              ));
-            }),
+              return Scaffold(
                 body: SizedBox(
                   
                     child: Container(
@@ -120,7 +108,26 @@ loading = false;
                       ),
                     ),
                   ),
-                  const Expanded(flex: 4, child: SizedBox()),
+                  const Expanded(flex: 4, child: SizedBox()),Expanded(flex: 4,child: SizedBox()),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: ElevatedButton.icon(
+        icon: const Icon(
+          Icons.print,
+          color: Colors.white,
+        ),
+        label: Text(
+          "Print Driver",
+          style: TextStyle(color: Colors.white),
+        ),
+            onPressed: () {
+              
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => PrintUnitKu( data.map((e) => HistorySaldo2("Daftar Driver", e.nama_supir,
+                 e.nohp_supir, 0 ,"", )).toList()),
+              ));
+            }),
+                  ),
                   TambahSupir()
                 ],
                           ),
