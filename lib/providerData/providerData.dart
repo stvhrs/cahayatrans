@@ -82,7 +82,7 @@ late User user;
       List<Perbaikan> perbaikan,
       List<JualBeliMobil> jualbeli,
       List<MutasiSaldo> listMutasi) {
-    print('set');
+    //print('set');
     if (users.isNotEmpty) {
       listUser.clear();
       listUser.addAll(users);
@@ -209,7 +209,7 @@ late User user;
     double incrementMutasi = 0;
     incrementMutasi += totalSaldo;
     for (var i = 0; i < listHistorySaldo.length; i++) {
-      print(incrementMutasi);
+      //print(incrementMutasi);
       // if (i == 0) {
       //   listHistorySaldo[0].sisaSaldo = totalSaldo;
       //   return;
@@ -383,9 +383,9 @@ late User user;
   void updateTransaksi(Transaksi transaksi) {
     listTransaksi.sort((a, b) => DateTime.parse(b.tanggalBerangkat)
                 .compareTo(DateTime.parse(a.tanggalBerangkat)));
-    log(transaksi.id);
-   log( listTransaksi.first.id);
-   log( listTransaksi.last.id);
+  //   log(transaksi.id);
+  //  log( listTransaksi.first.id);
+  //  log( listTransaksi.last.id);
 
  
     try {
@@ -475,7 +475,7 @@ late User user;
 
       data.keterangan_mobill = backupListMobil
           .firstWhere((element) => element.id == data.id_mobil,orElse: () {
-            log("errot");
+            //log(errot");
             return backupListMobil[0];
           },)
           .keterangan_mobill;

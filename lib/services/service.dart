@@ -316,7 +316,7 @@ class Service {
       );
 
       if (response.body.isNotEmpty) {
-        print(json.decode(response.body)["perbaikan"][0].toString());
+        //print(json.decode(response.body)["perbaikan"][0].toString());
         return Perbaikan.fromMap(
           json.decode(response.body)["perbaikan"][0],
         );
@@ -369,8 +369,8 @@ class Service {
           '$base/transaksi',
         ),
       );
-      print(data);
-      // print(json.decode(response.body)["transaksi"][0]);
+      //print(data);
+      // //print(json.decode(response.body)["transaksi"][0]);
 
       if (response.body.isNotEmpty) {
         return Transaksi.fromMap(json.decode(response.body)["transaksi"][0]);
@@ -378,7 +378,7 @@ class Service {
         return null;
       }
     } catch (E) {
-      print(E.toString());
+      //print(E.toString());
       return null;
     }
   }
@@ -445,9 +445,9 @@ class Service {
           '$base/jualBeli',
         ),
       );
-      print(response.body);
+      //print(response.body);
       // if (json.decode(response.body)['status'] == "false") {
-      //   log("tidak boleh sama");
+      //   //log(tidak boleh sama");
       // }
       if (response.body.isNotEmpty) {
         return JualBeliMobil.fromMap(json.decode(response.body)["jualbeli"][0]);
@@ -455,7 +455,7 @@ class Service {
         return null;
       }
     } catch (E) {
-      print(E.toString());
+      //print(E.toString());
       return null;
     }
   }
@@ -468,7 +468,7 @@ class Service {
           '$base/jualBeli',
         ),
       );
-      print(json.decode(response.body));
+      //print(json.decode(response.body));
 
       return JualBeliMobil.fromMap(json.decode(response.body)["0"]);
     } catch (e) {
@@ -505,7 +505,7 @@ class Service {
         ),
       );
 
-      log("" + json.decode(response.body)[0].toString());
+      //log(" + json.decode(response.body)[0].toString());
 
       return MutasiSaldo.fromMap(
         json.decode(response.body)["0"],

@@ -35,7 +35,7 @@ Future<Uint8List> generateResume(
     PdfPageFormat format, List<KeuanganBulanan> as) async {
           as.sort((a, b){ //sorting in ascending order
     return a.namaMobil[0]. toLowerCase().compareTo(b.namaMobil[0].toLowerCase());});
-      print(as.length);
+      //print(as.length);
   pw.TextStyle med = const pw.TextStyle(fontSize: 10);
   DateTime dateTime = DateTime.parse(DateTime.now().toIso8601String());
   String yourDateTime = DateFormat('HH:mm dd-MM-yyyy').format(dateTime);
@@ -223,7 +223,7 @@ pw.ImageProvider asu = pw.MemoryImage(
 
   var pagetheme = await _myPageTheme(format);
   for (var element in as) {
-  print(element.bulan+element.namaMobil);
+  //print(element.bulan+element.namaMobil);
     document.addPage(pw.Page(
         pageFormat: PdfPageFormat.a4,
          margin: const pw.EdgeInsets.only(top: 16,bottom: 16,right: 16,left: 48),

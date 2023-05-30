@@ -208,8 +208,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             return;
                           }
                           for (var element in users) {
-                            print(generateMd5(_passwordControler));
-                            print(element.password);
+                            //print(generateMd5(_passwordControler));
+                            //print(element.password);
                             if (element.username == _userControler &&
                                 element.password == _passwordControler) {
                               valid = true;
@@ -226,11 +226,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             Provider.of<ProviderData>(context, listen: false)
                                 .login();
                             if (data.owner) {
-                              print('owner');
+                              //print('owner');
                               Provider.of<ProviderData>(context, listen: false)
                                   .owner();
                             } else {
-                              print('admin');
+                              //print('admin');
                               Provider.of<ProviderData>(context, listen: false)
                                   .admin();
                             }

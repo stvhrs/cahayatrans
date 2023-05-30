@@ -33,7 +33,7 @@ class _SupirTileState extends State<SupirTile> {
   @override
   Widget build(BuildContext context) {
    
-    print(deleteable);
+    //print(deleteable);
     return InkWell(
       child: Container(
         color: widget.index.isEven ? Colors.white : Colors.grey.shade200,

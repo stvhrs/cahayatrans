@@ -62,7 +62,7 @@ class _DashBoardState extends State<DashBoard> {
     try {
       var data = prefs.getString('data');
       if (data != null) {
-        print(jsonDecode(data));
+        //print(jsonDecode(data));
         User? user = await Service.getUserId(jsonDecode(data)["id_user"]);
         if (user == null ||
             user.password != jsonDecode(data)["password"] ||
@@ -78,10 +78,10 @@ class _DashBoardState extends State<DashBoard> {
         // ignore: use_build_context_synchronously
         Provider.of<ProviderData>(context, listen: false).login();
         if (user.owner) {
-          print('owner');
+          //print('owner');
           Provider.of<ProviderData>(context, listen: false).owner();
         } else {
-          print('admin');
+          //print('admin');
           Provider.of<ProviderData>(context, listen: false).admin();
         }
         username = jsonDecode(data)['username'];
@@ -145,7 +145,7 @@ class _DashBoardState extends State<DashBoard> {
   final List<bool> _open = [true, false, false, false];
   @override
   Widget build(BuildContext context) {
-    log("build");
+    //log(build");
 
     var item = const TextStyle(
         fontFamily: 'Nunito',

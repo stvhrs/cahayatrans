@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var data = prefs.getString('data');
 
     if (data != null) {
-      print(jsonDecode(data));
+    
       User? user = await Service.getUserId(jsonDecode(data)["id_user"]);
       if (user == null ||
           user.password != jsonDecode(data)["password"] ||
@@ -93,10 +93,10 @@ class _MyHomePageState extends State<MyHomePage> {
       // ignore: use_build_context_synchronously
       Provider.of<ProviderData>(context, listen: false).login();
       if (user.owner) {
-        print('owner');
+     
         Provider.of<ProviderData>(context, listen: false).owner();
       } else {
-        print('admin');
+       
         Provider.of<ProviderData>(context, listen: false).admin();
       }
       loading = false;
@@ -120,11 +120,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // print(MediaQuery.of(context).size.width);
-    // print(MediaQuery.of(context).size.height);
-    // print(MediaQuery.of(context).size.width *
+    // //print(MediaQuery.of(context).size.width);
+    // //print(MediaQuery.of(context).size.height);
+    // //print(MediaQuery.of(context).size.width *
     //     MediaQuery.of(context).devicePixelRatio);
-    // print(MediaQuery.of(context).size.height *
+    // //print(MediaQuery.of(context).size.height *
     //     MediaQuery.of(context).devicePixelRatio);
     return loading
         ? CustomPaints()

@@ -25,7 +25,7 @@
 //   TrackballBehavior? _trackballBehavior;
 //   @override
 //   void initState() {
-//     print(widget.histori.length.toString() + 'histori');
+//     //print(widget.histori.length.toString() + 'histori');
 //     super.initState();
 //     _trackballBehavior = TrackballBehavior(
 //         enable: true,

@@ -62,10 +62,10 @@ listUser=await Service.getUser();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var data = prefs.getString('data');
     if (jsonDecode(data!)['status'] == 'owner') {
-      print('owner');
+    
       Provider.of<ProviderData>(context, listen: false).owner();
     } else {
-      print('admin');
+    
       Provider.of<ProviderData>(context, listen: false).admin();
     }
  Provider.of<ProviderData>(context, listen: false).user = User.fromMap( jsonDecode(data));

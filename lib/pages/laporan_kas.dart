@@ -52,7 +52,7 @@ class _LaporanKasState extends State<LaporanKas> {
         .searchperbaikan('', false);
     Provider.of<ProviderData>(context, listen: false).calculateSaldo();
     Provider.of<ProviderData>(context, listen: false).calculateMutasi();
-    log('calucalte mutasi page');
+    //log(calucalte mutasi page');
 
     super.initState();
   }
@@ -109,7 +109,7 @@ class _LaporanKasState extends State<LaporanKas> {
 
     List<Perbaikan> listPerbaikan = [];
     if (dropdownValue != dropdownValue2) {
-      log('beda');
+      //log(beda');
       range = Provider.of<ProviderData>(context, listen: false)
           .listHistorySaldo
           .where((element) =>
@@ -121,7 +121,7 @@ class _LaporanKasState extends State<LaporanKas> {
       saldoAwal = range.last.sisaSaldo;
       saldoAkhir = range.first.harga + range.first.sisaSaldo;
     } else if (dropdownValue == dropdownValue2) {
-      log('sama');
+      //log(sama');
       range = Provider.of<ProviderData>(context, listen: false)
           .listHistorySaldo
           .where((element) =>
@@ -176,9 +176,9 @@ class _LaporanKasState extends State<LaporanKas> {
     var light = const TextStyle(
       fontSize: 14,
     );
-    log(dropdownValue2);
-    log(dropdownValue);
-    log(list.indexOf(dropdownValue2).toString());
+    // log(dropdownValue2);
+    // log(dropdownValue);
+    // log(list.indexOf(dropdownValue2).toString());
     return Scaffold(
       floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.green,

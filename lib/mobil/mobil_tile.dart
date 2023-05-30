@@ -33,7 +33,7 @@ class _MobilTileState extends State<MobilTile> {
   Widget build(BuildContext context) {
     
   
-    print(deleteable);
+    //print(deleteable);
     return InkWell(
                             child: Container(
                               color:widget. index.isEven
