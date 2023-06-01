@@ -107,7 +107,7 @@ class _LaporanKasState extends State<LaporanKas> {
     saldoAwal = 0;
     List<HistorySaldo> range = [];
 
-    List<Perbaikan> listPerbaikan = [];
+try{
     if (dropdownValue != dropdownValue2) {
       //log(beda');
       range = Provider.of<ProviderData>(context, listen: false)
@@ -165,6 +165,7 @@ class _LaporanKasState extends State<LaporanKas> {
         totalAdministrasi += element.harga;
       }
     }
+    }catch(e){}
   }
 
   @override
