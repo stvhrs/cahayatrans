@@ -114,7 +114,7 @@ try{
           .listHistorySaldo
           .where((element) =>
               DateTime.parse(element.tanggal).isBefore(DateTime(
-                  ropdownValue2, list.indexOf(dropdownValue2) + 1, 31, 24)) &&
+                  ropdownValue2, list.indexOf(dropdownValue2) + 1,list.indexOf(dropdownValue2)==1?28: 31, 24)) &&
               DateTime.parse(element.tanggal).isAfter(
                   DateTime(ropdownValue2, list.indexOf(dropdownValue) + 1, 0)))
           .toList();
@@ -126,7 +126,7 @@ try{
           .listHistorySaldo
           .where((element) =>
               DateTime.parse(element.tanggal).isBefore(DateTime(
-                  ropdownValue2, list.indexOf(dropdownValue2) + 1, 31, 24)) &&
+                  ropdownValue2, list.indexOf(dropdownValue2) + 1, list.indexOf(dropdownValue2)==1?28: 31, 24)) &&
               DateTime.parse(element.tanggal).isAfter(DateTime(
                   ropdownValue2, list.indexOf(dropdownValue) + 1, 0, 0)))
           .toList();

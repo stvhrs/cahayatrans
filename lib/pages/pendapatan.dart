@@ -1,3 +1,4 @@
+import 'package:cahaya/pages/searchTransaksilain.dart';
 import 'package:flutter/material.dart';
 import 'package:cahaya/transaksi_lain/delete_pendaptan.dart';
 import 'package:cahaya/transaksi_lain/edit_pendapta.dart';
@@ -45,6 +46,10 @@ loading = false;
   }
   @override
   void initState() {
+      Provider.of<ProviderData>(context, listen: false).startTl = null;
+    Provider.of<ProviderData>(context, listen: false).endTl = null;
+
+   
         if (mounted){ initData();}
    
  
@@ -117,7 +122,7 @@ loading = false;
                          child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children:
-                                  [
+                                  [SearchTl(),
                                           const Spacer(),Padding(
                       padding: const EdgeInsets.only(right: 20),
                       child: ElevatedButton.icon(

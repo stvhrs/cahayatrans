@@ -53,6 +53,31 @@ late User user;
 
   double totalSaldo = 0;
   List<User> listUser = [];
+    List<MutasiSaldo> backupListMutasiSaldo = [];
+
+
+DateTime? startTl;
+  DateTime? endTl;
+   void sortTransaksiLain() {
+  listMutasiSaldo.clear();
+    
+    for (var element in backupListMutasiSaldo) {
+      bool skipped = false;
+
+      if (startTl != null) {
+        if (DateTime.parse(element.tanggal).isBefore(startTl!) ||
+            DateTime.parse(element.tanggal).isAfter(endTl!)) {
+          skipped = true;
+        }
+      }
+
+      if (!skipped) {
+        listMutasiSaldo.add(element);
+      }
+    }
+    notifyListeners();
+  }
+
   void owner() {
     isOwner = true;
     notifyListeners();
@@ -121,6 +146,7 @@ late User user;
     if (listMutasi.isNotEmpty) {
       listMutasiSaldo.clear();
       listMutasiSaldo.addAll(listMutasi);
+      backupListMutasiSaldo.addAll(listMutasi);
     }
 
     calculateSaldo();
@@ -184,10 +210,10 @@ late User user;
     listJualBeliMobil.every((e) {
       if (e.beli) {
         listHistorySaldo.add(
-            HistorySaldo('Beli Mobil', 0, e.mobil, -e.harga, e.tanggal, true));
+            HistorySaldo('Beli Mobil', 0, e.mobil, -e.harga, e.tanggal, false));
       } else {
         listHistorySaldo.add(
-            HistorySaldo('Jual Mobil', 0, e.mobil, e.harga, e.tanggal, false));
+            HistorySaldo('Jual Mobil', 0, e.mobil, e.harga, e.tanggal, true));
       }
 
       return true;
