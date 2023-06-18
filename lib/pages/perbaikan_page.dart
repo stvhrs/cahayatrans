@@ -1,3 +1,4 @@
+import 'package:cahaya/pages/searchPerbikan&admin.dart';
 import 'package:flutter/material.dart';
 import 'package:cahaya/helper/custompaint.dart';
 import 'package:cahaya/helper/format_tanggal.dart';
@@ -25,7 +26,7 @@ class PerbaikanPage extends StatefulWidget {
 
 class _PerbaikanPageState extends State<PerbaikanPage> {
   late List<Perbaikan> listTransaksi;
-
+List<Perbaikan> data=[];
   bool loading = true;
   initData() async {
 //    test=      await Service.test2();
@@ -49,14 +50,16 @@ class _PerbaikanPageState extends State<PerbaikanPage> {
   void initState() {
     if (mounted) {
       initData();
-    }
-    Provider.of<ProviderData>(context, listen: false)
+    }    Provider.of<ProviderData>(context, listen: false)
         .searchperbaikan('', false);
+     Provider.of<ProviderData>(context, listen: false).startp = null;
+    Provider.of<ProviderData>(context, listen: false).endp = null;
+
     Provider.of<ProviderData>(context, listen: false).searchMobil('', false);
     super.initState();
   }
 
-  List<Perbaikan> data = [];
+
   @override
   Widget build(BuildContext context) {
     return loading == true
@@ -124,6 +127,7 @@ class _PerbaikanPageState extends State<PerbaikanPage> {
                               ),
                             ),
                           ),
+                          Expanded(flex: 2,child: SearchP()),
                           const Expanded(flex: 4, child: SizedBox()),
                           Padding(
                             padding: const EdgeInsets.only(right: 20),

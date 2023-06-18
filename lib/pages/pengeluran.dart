@@ -51,7 +51,7 @@ loading = false;
     Provider.of<ProviderData>(context, listen: false).endTl = null;
 
    
-
+  // Provider.of<ProviderData>(context, listen: false).sortTransaksiLain();
   
 
    

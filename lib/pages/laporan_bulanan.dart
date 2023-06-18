@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:cahaya/bulanan/bulanan.dart';
@@ -41,7 +43,7 @@ class _LaporanBulananState extends State<LaporanBulanan> {
   String dropdownValue = list[DateTime.now().month - 1];
   int ropdownValue2 = DateTime.now().year;
   late List<Mobil> data;
-  List<KeuanganBulanan> printed = [];
+ 
   List<KeuanganBulanan> backup = [];
   String value = "Semua";
 
@@ -85,7 +87,7 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () {
-                    if (printed.isNotEmpty) {
+                    if (backup.isNotEmpty) {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (context) {
                         data.sort((a, b) {
@@ -94,7 +96,7 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                               .toLowerCase()
                               .compareTo(b.nama_mobil[0].toLowerCase());
                         });
-                        return LaporanPrint(printed);
+                        return LaporanPrint(backup);
                       }));
                     }
                   }))),
@@ -122,9 +124,9 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                             color: Theme.of(context).colorScheme.secondary,
                           ),
                           onChanged: (int? value) {
-                            // This is called when the user selects an item.
+                            backup=[]; ropdownValue2 = value!;
                             setState(() {
-                              ropdownValue2 = value!;
+                             
                             });
                           },
                           items: tahun.map<DropdownMenuItem<int>>((int value) {
@@ -150,9 +152,10 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                             color: Theme.of(context).colorScheme.secondary,
                           ),
                           onChanged: (String? value) {
-                            // This is called when the user selects an item.
+                           backup=[];
+                                                         dropdownValue = value!;
                             setState(() {
-                              dropdownValue = value!;
+
                             });
                           },
                           items: list
@@ -241,15 +244,16 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                             var keuangan = backup.firstWhere(
                                 (element) => element.namaMobil == value,
                                 orElse: () {
+                                  log("rrrr");
                               return backup[0];
                             });
-                            printed = [keuangan];
+                            backup=[keuangan];
                           } else {
-                            if (!printed
+                            if (!backup
                                 .map((e) => e.namaMobil)
                                 .contains(data.namaMobil)) {
-                              printed.add(data);
                               backup.add(data);
+                           
                             }
                           }
 
@@ -274,12 +278,12 @@ class _LaporanBulananState extends State<LaporanBulanan> {
                 onValueChanged: (va) {
                   value = va;
                   if (va != "Semua") {
-                    if (printed
+                    if (backup
                         .map((e) => e.namaMobil.toString())
                         .contains(va)) {
-                      var keuangan = printed
+                      var keuangan = backup
                           .firstWhere((element) => element.namaMobil == va);
-                      printed = [keuangan];
+                      backup=[keuangan];
                     }
 
                     // enable = false;

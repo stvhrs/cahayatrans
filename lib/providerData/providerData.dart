@@ -55,7 +55,7 @@ late User user;
   List<User> listUser = [];
     List<MutasiSaldo> backupListMutasiSaldo = [];
 
-
+List<KeuanganBulanan> printedBulanan=[];
 DateTime? startTl;
   DateTime? endTl;
    void sortTransaksiLain() {
@@ -69,15 +69,39 @@ DateTime? startTl;
             DateTime.parse(element.tanggal).isAfter(endTl!)) {
           skipped = true;
         }
-      }
 
-      if (!skipped) {
+      }
+      if(!skipped){
         listMutasiSaldo.add(element);
       }
+
+    
     }
     notifyListeners();
   }
+DateTime? startp;
+  DateTime? endp;
+   void sortp() {
+  listPerbaikan.clear();
+    
+    for (var element in backupListPerbaikan) {
+      bool skipped = false;
 
+      if (startp != null) {
+        if (DateTime.parse(element.tanggal).isBefore(startp!) ||
+            DateTime.parse(element.tanggal).isAfter(endp!)) {
+          skipped = true;
+        }
+
+      }
+      if(!skipped){
+        listPerbaikan.add(element);
+      }
+
+    
+    }
+    notifyListeners();
+  }
   void owner() {
     isOwner = true;
     notifyListeners();
@@ -145,6 +169,7 @@ DateTime? startTl;
     }
     if (listMutasi.isNotEmpty) {
       listMutasiSaldo.clear();
+      backupListMutasiSaldo.clear();
       listMutasiSaldo.addAll(listMutasi);
       backupListMutasiSaldo.addAll(listMutasi);
     }
@@ -192,7 +217,7 @@ DateTime? startTl;
     backupListHistorySaldo.clear();
     listTransaksi.every((e) {
       listHistorySaldo.add(HistorySaldo(
-          'Transaksi', 0, e.mobil, e.sisa, e.tanggalBerangkat, true));
+          'Transaksi', 0, e.mobil, e.keterangan,e.sisa, e.tanggalBerangkat, true));
       return true;
     });
 
@@ -200,7 +225,7 @@ DateTime? startTl;
       listHistorySaldo.add(HistorySaldo(
           e.adminitrasi ? "Administrasi" : 'Perbaikan',
           0,
-          e.mobil,
+          e.mobil,e.keterangan,
           -e.harga,
           e.tanggal,
           false));
@@ -210,10 +235,10 @@ DateTime? startTl;
     listJualBeliMobil.every((e) {
       if (e.beli) {
         listHistorySaldo.add(
-            HistorySaldo('Beli Mobil', 0, e.mobil, -e.harga, e.tanggal, false));
+            HistorySaldo('Beli Mobil', 0, e.mobil, e.keterangan,-e.harga, e.tanggal, false));
       } else {
         listHistorySaldo.add(
-            HistorySaldo('Jual Mobil', 0, e.mobil, e.harga, e.tanggal, true));
+            HistorySaldo('Jual Mobil', 0, e.mobil,e.keterangan, e.harga, e.tanggal, true));
       }
 
       return true;
@@ -222,10 +247,10 @@ DateTime? startTl;
     listMutasiSaldo.every((e) {
       if (e.pendapatan) {
         listHistorySaldo.add(HistorySaldo(
-            'Nota Pemasukan', 0, e.keterangan, e.harga, e.tanggal, true));
+            'Nota Pemasukan', 0, e.nota,e.keterangan, e.harga, e.tanggal, true));
       } else {
         listHistorySaldo.add(HistorySaldo(
-            'Nota Pengeluaran', 0, e.keterangan, -e.harga, e.tanggal, false));
+            'Nota Pengeluaran', 0, e.nota,e.keterangan, -e.harga, e.tanggal, false));
       }
       return true;
     });

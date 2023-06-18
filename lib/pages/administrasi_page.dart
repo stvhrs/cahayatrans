@@ -1,3 +1,4 @@
+import 'package:cahaya/pages/searchPerbikan&admin.dart';
 import 'package:flutter/material.dart';
 
 import 'package:cahaya/administrasi/admin_delete.dart';
@@ -51,6 +52,8 @@ loading = false;
   @override
   void initState() {
         if (mounted){ initData();}
+         Provider.of<ProviderData>(context, listen: false).startTl = null;
+    Provider.of<ProviderData>(context, listen: false).endTl = null;
                           Provider.of<ProviderData>(context, listen: false)
                             .searchperbaikan('',false);
                                 Provider.of<ProviderData>(context, listen: false).searchMobil('', false);
@@ -132,7 +135,7 @@ List<Perbaikan> data=[];
                           },
                         ),
                       ),
-                    ),
+                    ), Expanded(flex: 2,child: SearchP()),
                     const Expanded(flex: 4, child: SizedBox()),Padding(
                       padding: const EdgeInsets.only(right: 20),
                       child: ElevatedButton.icon(

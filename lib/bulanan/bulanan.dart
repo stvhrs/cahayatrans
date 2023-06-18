@@ -50,10 +50,15 @@ class _BulananState extends State<Bulanan> {
                         element.supir,
                       )),
                   Expanded(
-                      flex: 10,
+                      flex: 4,
                       child: Text(
                         textAlign: TextAlign.left,
                         element.tujuan,
+                      )), Expanded(
+                      flex: 4,
+                      child: Text(
+                        textAlign: TextAlign.left,
+                        element.keterangan,
                       )),
                   Expanded(
                       flex: 7,
@@ -255,10 +260,17 @@ class _BulananState extends State<Bulanan> {
                                       Theme.of(context).textTheme.displayMedium,
                                 )),
                             Expanded(
-                                flex: 10,
+                                flex: 4,
                                 child: Text(
                                   textAlign: TextAlign.left,
                                   'Tujuan',
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                )), Expanded(
+                                flex: 4,
+                                child: Text(
+                                  textAlign: TextAlign.left,
+                                  'Ket',
                                   style:
                                       Theme.of(context).textTheme.displayMedium,
                                 )),

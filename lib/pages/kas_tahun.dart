@@ -59,7 +59,7 @@ class _KasTahunState extends State<KasTahun> {
 
   @override
   Widget build(BuildContext context) {
-    listKas.clear;
+    listKas.clear();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -107,8 +107,8 @@ class _KasTahunState extends State<KasTahun> {
                             color: Theme.of(context).colorScheme.secondary,
                           ),
                           onChanged: (int? value) {
-                            // This is called when the user selects an item.
-                            setState(() {
+                          listKas.clear()
+;                            setState(() {
                               ropdownValue2 = value!;
                             });
                           },

@@ -4,18 +4,34 @@ import 'dart:typed_data';
 import 'package:cahaya/models/history_saldo2.dart';
 import 'package:cahaya/models/keuangan_bulanan.dart';
 import 'package:cahaya/models/rekap_model.dart';
+import 'package:cahaya/models/transaksi.dart';
 import 'package:cahaya/print_all.dart';
 import 'package:cahaya/print_bulanan.dart';
 import 'package:cahaya/print_laba.dart';
 import 'package:cahaya/print_mutasi.dart';
 import 'package:cahaya/print_reekap.dart';
 import 'package:cahaya/print_tahunan.dart';
+import 'package:cahaya/print_transaksi.dart';
 import 'package:cahaya/print_unit.dart';
 import 'package:pdf/pdf.dart';
 
 import 'models/history_saldo.dart';
 import 'models/kas_tahun.dart';
+class Transaksion {
+  const Transaksion(this.builder, [this.needsData = false]);
 
+  final LayoutCallbackWithData88 builder;
+
+  final bool needsData;
+}
+
+typedef LayoutCallbackWithData88 = Future<Uint8List> Function(
+    PdfPageFormat pageFormat, List<Transaksi> list, );
+
+
+const transaksion = [
+  Transaksion(printTransaksi, true),
+];
 const examples = [
   Example(generateResume, true),
 ];

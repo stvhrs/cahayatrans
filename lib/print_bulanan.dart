@@ -36,7 +36,7 @@ Future<Uint8List> generateResume(
           as.sort((a, b){ //sorting in ascending order
     return a.namaMobil[0]. toLowerCase().compareTo(b.namaMobil[0].toLowerCase());});
       //print(as.length);
-  pw.TextStyle med = const pw.TextStyle(fontSize: 10);
+  pw.TextStyle med = const pw.TextStyle(fontSize: 6);
   DateTime dateTime = DateTime.parse(DateTime.now().toIso8601String());
   String yourDateTime = DateFormat('HH:mm dd-MM-yyyy').format(dateTime);
 pw.ImageProvider asu = pw.MemoryImage(
@@ -74,11 +74,17 @@ pw.ImageProvider asu = pw.MemoryImage(
                         element.supir,
                       )),
                   pw.Expanded(
-                      flex: 10,
+                      flex: 4,
                       child: pw.Text(
                         style: med,
                         textAlign: pw.TextAlign.left,
                         element.tujuan,
+                      )), pw.Expanded(
+                      flex: 4,
+                      child: pw.Text(
+                        style: med,
+                        textAlign: pw.TextAlign.left,
+                        element.keterangan,
                       )),
                   pw.Expanded(
                       flex: 7,
@@ -217,7 +223,7 @@ pw.ImageProvider asu = pw.MemoryImage(
   }
 
   final document = pw.Document();
-  pw.TextStyle bold = pw.TextStyle(fontWeight: pw.FontWeight.bold);
+  pw.TextStyle bold = pw.TextStyle(fontWeight: pw.FontWeight.bold,fontSize: 8);
     pw.TextStyle bold2 = pw.TextStyle(fontSize: 15,fontWeight: pw.FontWeight.bold);
   pw.TextStyle small = const pw.TextStyle(fontSize: 10);
 
@@ -279,7 +285,9 @@ pw.ImageProvider asu = pw.MemoryImage(
                           pw.Expanded(
                               flex: 4, child: pw.Text('Driver', style: bold)),
                           pw.Expanded(
-                              flex: 10, child: pw.Text('Tujuan', style: bold)),
+                              flex: 4, child: pw.Text('Tujuan', style: bold)),
+                               pw.Expanded(
+                              flex: 4, child: pw.Text('Ket', style: bold)),
                           pw.Expanded(
                               flex: 7, child: pw.Text('Tarif', style: bold)),
                           pw.Expanded(

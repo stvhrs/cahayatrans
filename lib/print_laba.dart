@@ -419,6 +419,8 @@ Future<Uint8List> generateResume4(
                                           style: light,
                                         ),
                                        pw. Text(
+                                           ( totalPendapatan+totalPengeluaran).isNegative? ("( ${Rupiah.format2(totalPendapatan +
+                                                totalPengeluaran)} )"):
                                             Rupiah.format2(totalPendapatan +
                                                 totalPengeluaran),
                                             style: light)

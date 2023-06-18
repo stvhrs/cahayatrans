@@ -93,6 +93,7 @@ class _LaporanKasState extends State<LaporanKas> {
   }
 
   test() {
+    try{
     totalTransaksi = 0;
     totalJualUnit = 0;
     totalNotaBeli = 0;
@@ -107,8 +108,8 @@ class _LaporanKasState extends State<LaporanKas> {
     saldoAwal = 0;
     List<HistorySaldo> range = [];
 
-try{
-    if (dropdownValue != dropdownValue2) {
+    List<Perbaikan> listPerbaikan = [];
+   if (dropdownValue != dropdownValue2) {
       //log(beda');
       range = Provider.of<ProviderData>(context, listen: false)
           .listHistorySaldo
@@ -164,8 +165,7 @@ try{
         totalPengeluaran += element.harga;
         totalAdministrasi += element.harga;
       }
-    }
-    }catch(e){}
+    }}catch(e){};
   }
 
   @override
@@ -662,14 +662,15 @@ try{
                               child: Container(
                     
                                   child: Row(
-                                      mainAxisAlignment:
+                                      mainAxisAlignment:  
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
                                           "Rp.",
                                           style: light,
                                         ),
-                                        Text(
+                                        Text((totalPendapatan+totalPengeluaran).isNegative? ("( ${Rupiah.format2(totalPendapatan +
+                                                totalPengeluaran)} )"):
                                             Rupiah.format2(totalPendapatan +
                                                 totalPengeluaran),
                                             style: light)

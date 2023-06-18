@@ -138,6 +138,9 @@ class _MutasiSaldoPageState extends State<MutasiSaldoPage> {
                       Expanded(flex: 5,
                           child: Text('Detail',
                               style:
+                                  Theme.of(context).textTheme.displayMedium)), Expanded(flex: 5,
+                          child: Text('Keterangan',
+                              style:
                                   Theme.of(context).textTheme.displayMedium)),
                       Expanded(flex: 4,
                           child: Text('Nominal',
@@ -173,7 +176,9 @@ class _MutasiSaldoPageState extends State<MutasiSaldoPage> {
                                             .listHistorySaldo[index].sumber)),
                                     Expanded(flex: 5,
                                         child: Text(value
-                                            .listHistorySaldo[index].detail)),
+                                            .listHistorySaldo[index].detail)), Expanded(flex: 5,
+                                        child: Text(value
+                                            .listHistorySaldo[index].ket)),
                                     Expanded(flex: 4,
                                         child: Container(margin: EdgeInsets.only(right: 60),
                                           child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,

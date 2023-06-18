@@ -48,7 +48,7 @@ loading = false;
   void initState() {
       Provider.of<ProviderData>(context, listen: false).startTl = null;
     Provider.of<ProviderData>(context, listen: false).endTl = null;
-
+    // Provider.of<ProviderData>(context, listen: false).sortTransaksiLain();
    
         if (mounted){ initData();}
    
